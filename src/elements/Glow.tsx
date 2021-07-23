@@ -42,25 +42,20 @@ const Glow = () => {
     vertexShader: vertexShader,
     fragmentShader: fragmentShader,
     side: THREE.FrontSide,
-    blending: THREE.AdditiveBlending,
+    // blending: THREE.AdditiveBlending,
     transparent: true,
   })
   const sphereGeom = new THREE.SphereGeometry(100, 32, 16)
   const moonGlow = new THREE.Mesh(sphereGeom.clone(), glowMaterial.clone())
-  useEffect(() => {
-    const onClickListener = (event: any) => {
-      console.log("Clicked")
-      setActive(!active)
-    }
-    moonGlow.addEventListener("onClick", onClickListener)
-    console.log("Added event listener")
-    return () => {
-      moonGlow.removeEventListener("onClick", onClickListener)
-      console.log("Remove event listener")
-    }
-  }, [])
 
   useFrame(() => {
+    // let viewVector = new THREE.Vector3().subVectors(
+    //   camera.position,
+    //   object.glow.getWorldPosition()
+    // )
+
+    // object.glow.material.uniforms.viewVector.value = viewVector
+
     if (glowMesh && glowMesh.current) {
       moonGlow.material.uniforms.viewVector.value = new THREE.Vector3().subVectors(
         camera.position,

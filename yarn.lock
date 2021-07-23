@@ -12050,6 +12050,11 @@ text-table@0.2.0, text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
+three-glow-mesh@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/three-glow-mesh/-/three-glow-mesh-0.1.2.tgz#d7e1528e678380fc7022ffed6189246100493b4d"
+  integrity sha512-sjiRl8PdRuc5xzZtaAusumx4sS/zRAYiFSQ1bNefRrJOXgu+ZHxq4/vYwRoa85PwPKLkp2SCo3Lu4JfJrphngw==
+
 three-mesh-bvh@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/three-mesh-bvh/-/three-mesh-bvh-0.4.1.tgz#ba0bf1dac7cbd41f2132c8446545c8ad9fbeb892"
