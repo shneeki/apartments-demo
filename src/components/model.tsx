@@ -1,9 +1,8 @@
 import React from "react"
 
-import { Material, Mesh, Color, FrontSide } from "three"
+import { Mesh, Color, FrontSide } from "three"
 import { useGLTF, useTexture } from "@react-three/drei"
-import { useEffect } from "react"
-import { GlowMaterial } from "../elements/GlowMaterial"
+
 import * as THREE from "three"
 import { glowFragmentShader, glowVertexShader } from "../elements/shaders"
 
@@ -18,12 +17,12 @@ const dummyApartments = {
     { id: 6, available: true, label: "Light apartment" },
   ],
 }
+const colorAvailable = "#1FAE9A"
+const colorUnavailable = "red"
 type modelProps = {
   path: string
 }
 
-const colorAvailable = "#1FAE9A"
-const colorUnavailable = "red"
 const Model = React.forwardRef(({ path }: modelProps, ref) => {
   const glb = useGLTF(path, true)
   const boxTexture = useTexture("shaderTexture.png")
