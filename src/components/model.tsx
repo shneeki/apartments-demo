@@ -10,10 +10,10 @@ import { glowFragmentShader, glowVertexShader } from "../elements/shaders"
 const dummyApartments = {
   apartments: [
     { id: 0, available: true, label: "Cool apartment" },
-    { id: 1, available: true, label: "Grey apartment" },
+    { id: 1, available: false, label: "Grey apartment" },
     { id: 2, available: true, label: "Top apartment" },
-    { id: 3, available: true, label: "Bright apartment" },
-    { id: 4, available: true, label: "Dark apartment" },
+    { id: 3, available: false, label: "Bright apartment" },
+    { id: 4, available: false, label: "Dark apartment" },
     { id: 5, available: true, label: "Hot apartment" },
     { id: 6, available: true, label: "Light apartment" },
   ],
@@ -22,6 +22,8 @@ type modelProps = {
   path: string
 }
 
+const colorAvailable = "#1FAE9A"
+const colorUnavailable = "red"
 const Model = React.forwardRef(({ path }: modelProps, ref) => {
   const glb = useGLTF(path, true)
   const boxTexture = useTexture("shaderTexture.png")
@@ -39,7 +41,11 @@ const Model = React.forwardRef(({ path }: modelProps, ref) => {
         const customMaterial = new THREE.ShaderMaterial({
           uniforms: {
             vTexture: { value: boxTexture },
-            color: { value: new THREE.Color("#1FAE9A") },
+            color: {
+              value: apartments[apartmentsIndex].available
+                ? new THREE.Color(colorAvailable)
+                : new THREE.Color(colorUnavailable),
+            },
             isActive: { value: true },
           },
           vertexShader: glowVertexShader,
